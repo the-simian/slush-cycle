@@ -1,17 +1,18 @@
-var webpack = require('webpack');
-var WebpackDevServer = require('webpack-dev-server');
-var config = require('./webpack.config');
+const webpack = require('webpack');
+const WebpackDevServer = require('webpack-dev-server');
+const config = require('./webpack.config');
 
 
 // Start watching and bundling tests here
-var tests = require('./webpack.test.config'),
-  testsCompiler = webpack(tests);
+const tests = require('./webpack.test.config');
+const testsCompiler = webpack(tests);
 
-testsCompiler.watch({}, function (err) {
-  if (err) console.log(err);
+testsCompiler.watch({}, function onErr(err) {
+  if (err) {
+    console.log(err);
+  }
   //console.log('Test file bundled');
 });
-
 
 // Primary app
 new WebpackDevServer(webpack(config), {
@@ -19,12 +20,14 @@ new WebpackDevServer(webpack(config), {
   hot: true,
   inline: true,
   historyApiFallback: true,
-  stats: {colors: true}
+  stats: {
+    colors: true
+  }
 })
-  .listen(3000, 'localhost', function (err) {
-    if (err) {
-      console.log(err);
-    }
+.listen(3000, 'localhost', function onlistenErr(err) {
+  if (err) {
+    console.log(err);
+  }
 
-    console.log('Listening at localhost:3000');
-  });
+  console.log('Listening at localhost:3000');
+});

@@ -1,17 +1,17 @@
-import Cycle                from '@cycle/core';
-import {makeDOMDriver}      from '@cycle/dom';
-import {makeHistoryDriver}  from '@cycle/history';
-import Rx                   from 'rx';
-import Main                 from './main';
+import Cycle from '@cycle/core';
+import {makeDOMDriver} from '@cycle/dom';
+import {makeHistoryDriver} from '@cycle/history';
+import Rx from 'rx';
+import main from './main';
 
 // we are pulling in our css files here for webpack to compile
-require("!style!css!styles/pure-min.css");
-require("!style!css!styles/layout.css");
-require("!style!css!styles/grids-responsive-min.css");
+// require("!style!css!styles/pure-min.css");
+// require("!style!css!styles/layout.css");
+// require("!style!css!styles/grids-responsive-min.css");
 
 // creating our mainApp from /.main
 function mainApp(sources) {
-  let sinks = Main(sources);
+  let sinks = main(sources);
   return sinks;
 }
 
@@ -21,9 +21,12 @@ function mainApp(sources) {
 // History is using our makeHistoryDriver to deal with routing
 const sources = {
   DOM: makeDOMDriver('#application'),
-  History: makeHistoryDriver({hash: false, queries: true}),
+  History: makeHistoryDriver({
+    hash: false,
+    queries: true
+  }),
   Props: () => Rx.Observable.just(0)
 
 };
 
-Cycle.run(mainApp,sources);
+Cycle.run(mainApp, sources);

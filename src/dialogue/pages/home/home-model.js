@@ -7,7 +7,7 @@ const homeModel = ({inc$,dec$, props$}) => {
     inc$,
     dec$
     )
-    .scan((x, y) =>  x + y)
+    .scan((x, y) => x + y)
     .shareReplay(1);
 };
 
