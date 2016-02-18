@@ -47,7 +47,6 @@
     "callback-return": [2, ["callback", "cb", "next", "done"]],
     "no-useless-call": 2,
     "no-const-assign": 2,
-    "no-class-assign": 2,
     "require-yield": 1,
     "key-spacing": [2, {
       "beforeColon": false,
@@ -128,9 +127,7 @@
     "babel/new-cap": 1,
     "babel/object-curly-spacing": 1,
     "babel/object-shorthand": 1,
-    "babel/arrow-parens": 1,
-
-    "no-class/no-class": 2
+    "babel/arrow-parens": 1
 
   }
 }
