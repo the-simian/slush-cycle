@@ -1,6 +1,8 @@
 import Cycle from '@cycle/core';
 import {makeDOMDriver} from '@cycle/dom';
-import {makeHistoryDriver} from '@cycle/history';
+import {makeHistoryDriver} from 'cyclic-history';
+import {makeRouterDriver} from 'cyclic-router';
+import {createHashHistory} from 'history';
 import Rx from 'rx';
 import main from './main';
 
