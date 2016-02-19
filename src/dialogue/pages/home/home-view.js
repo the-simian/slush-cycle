@@ -7,9 +7,9 @@ const view = (state$) =>
       h1('.content-subhead', ['Home Page']),
       h1([`Welcome to the Home Page`]),
       div('.pure-u-1-2 .counter-table',[
-        button('.decrement .pure-button .button-error .pure-u-1-2', 'Decrement'),
-        button('.increment .pure-button .button-success .pure-u-1-2', 'Increment'),
-        div('.pure-u-1 .counter-table-result',[
+        button('.decrement', 'Decrement'),
+        button('.increment', 'Increment'),
+        div('.counter-table-result',[
           h2('Counter: ' + count)
         ])
       ])
