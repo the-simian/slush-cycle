@@ -1,18 +1,18 @@
 const webpack = require('webpack');
 const WebpackDevServer = require('webpack-dev-server');
-const config = require('./webpack.config');
+const config = require('./webpack.dev.config');
 
 
 // Start watching and bundling tests here
-const tests = require('./webpack.test.config');
-const testsCompiler = webpack(tests);
-
-testsCompiler.watch({}, function onErr(err) {
-  if (err) {
-    console.log(err);
-  }
-  //console.log('Test file bundled');
-});
+// const tests = require('./webpack.test.config');
+// const testsCompiler = webpack(tests);
+//
+// testsCompiler.watch({}, function onErr(err) {
+//   if (err) {
+//     console.log(err);
+//   }
+//   //console.log('Test file bundled');
+// });
 
 // Primary app
 new WebpackDevServer(webpack(config), {

@@ -1,34 +1,39 @@
-import Cycle from '@cycle/core';
-import {makeDOMDriver} from '@cycle/dom';
-import {makeHistoryDriver} from 'cyclic-history';
-import {makeRouterDriver} from 'cyclic-router';
-import {createHashHistory} from 'history';
-import Rx from 'rx';
-import main from './main';
+import {div, nav} from '@cycle/dom';
+import NotFound from './routes/notfound';
+import Route1 from './routes/route1.js';
+import Counter from './routes/counter.js';
+import Sidebar from './components/sidebar';
 
-// we are pulling in our css files here for webpack to compile
-// require("!style!css!styles/pure-min.css");
-// require("!style!css!styles/layout.css");
-// require("!style!css!styles/grids-responsive-min.css");
-
-// creating our mainApp from /.main
-function mainApp(sources) {
-  let sinks = main(sources);
-  return sinks;
-}
-
-//const Props = Main(sources).Props
-// this is the Cycle run. first argument is our mainApp then an object:
-// DOM is the ID or class we want the cycle to render onto our page
-// History is using our makeHistoryDriver to deal with routing
-const sources = {
-  DOM: makeDOMDriver('#application'),
-  History: makeHistoryDriver({
-    hash: false,
-    queries: true
-  }),
-  Props: () => Rx.Observable.just(0)
-
+// routes is used for matching a route to a component
+const routes = {
+  '/': Route1,
+  '/counter': Counter,
+  '*': NotFound
 };
 
-Cycle.run(mainApp, sources);
+// the view has sidebar & children passed in
+function view(sidebar, children) {
+  return div([
+    nav([sidebar]),
+    div([children])
+  ]);
+}
+
+function App(sources) {
+  const {router} = sources;
+  const {path$, value$} = router.define(routes);
+
+  const sidebar = Sidebar(sources, path$);
+
+  const childrenDOM$ = path$
+    .zip(
+      value$,
+      (path, value) => value({...sources, router: router.path(path)}).DOM
+    );
+
+  return {
+    Dom: sidebar.DOM.combineLatest(childrenDOM$, view)
+  };
+}
+
+export default App;

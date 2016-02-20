@@ -119,9 +119,9 @@
     "semi": 2,
     "dot-location": [2, "property"],
 
-    "quotes": 0, # symbols in single quotes
-    "global-strict": 0, # "use strict" should be inserted automatically
-    "comma-dangle": [2, "never"], # add last commas to improve diffs
+    "quotes": 0,
+    "global-strict": 0, 
+    "comma-dangle": [2, "never"],
 
     "babel/generator-star-spacing": 1,
     "babel/new-cap": 1,

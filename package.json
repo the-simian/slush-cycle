@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node server.js",
-    "build": "webpack --progress --colors --config webpack.production.config.js"
+    "build": "webpack --progress --colors --config webpack.config.js"
   },
   "repository": {
     "type": "git",
@@ -32,6 +32,7 @@
     "@cycle/history": "^1.1.0",
     "@cycle/isolate": "^1.2.0",
     "css-loader": "^0.23.1",
+    "cycle-snabbdom": "^1.0.3",
     "cyclic-history": "^0.1.0",
     "cyclic-router": "^0.3.0",
     "good": "^6.6.0",
