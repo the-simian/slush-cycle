@@ -25,6 +25,7 @@ function App(sources) {
 
   const sidebar = Sidebar(sources, path$);
 
+  //This is router setup
   const childrenDOM$ = path$
     .zip(
       value$,

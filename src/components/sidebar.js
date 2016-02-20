@@ -9,7 +9,7 @@ function Sidebar(sources, path$) {
 
   const view$ = path$.map(() => {
     return ul([
-      li([a({href: counterHref, title: 'derpyderp'}, 'Counfffter')]),
+      li([a({href: counterHref, title: 'counter'}, 'Counter')]),
       li([a({href: homeHref}, 'Home')])
     ]);
   });
