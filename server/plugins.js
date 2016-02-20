@@ -4,7 +4,7 @@ const goodConsole = require('good-console');
 
 const goodOpts = {
   reporters: [{
-    reporter: require('good-console'),
+    reporter: goodConsole,
     events: {
       log: '*',
       response: '*'
@@ -13,7 +13,6 @@ const goodOpts = {
 };
 
 function Plugins(server) {
-
   server.register(inert);
 
   server.register({

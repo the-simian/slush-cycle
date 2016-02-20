@@ -1,7 +1,4 @@
-
-
-function Public(server){
-
+function Public(server) {
   //make static resources available
   server.route({
     method: 'GET',

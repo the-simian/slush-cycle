@@ -1,12 +1,12 @@
 import {div, nav} from '@cycle/dom';
 import NotFound from './routes/notfound';
-import Route1 from './routes/route1.js';
+import Home from './routes/home.js';
 import Counter from './routes/counter.js';
 import Sidebar from './components/sidebar';
 
 // routes is used for matching a route to a component
 const routes = {
-  '/': Route1,
+  '/': Home,
   '/counter': Counter,
   '*': NotFound
 };
@@ -32,7 +32,7 @@ function App(sources) {
     );
 
   return {
-    Dom: sidebar.DOM.combineLatest(childrenDOM$, view)
+    DOM: sidebar.DOM.combineLatest(childrenDOM$, view)
   };
 }
 

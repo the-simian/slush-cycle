@@ -10,10 +10,10 @@ const notFoundView = div([
   }, 'This is the home page derrr')
 ]);
 
-function Route1() {
+function Home() {
   return {
     DOM: Observable.of(notFoundView)
   };
 }
 
-export default Route1;
+export default Home;

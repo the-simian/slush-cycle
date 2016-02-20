@@ -4,11 +4,11 @@ import {makeHistoryDriver} from 'cyclic-history';
 import {makeRouterDriver} from 'cyclic-router';
 import {createHashHistory} from 'history';
 
-import app from './app';
+import App from './app';
 
 const drivers = {
   DOM: makeDOMDriver('#root'),
   router: makeRouterDriver(makeHistoryDriver(createHashHistory()))
 };
 
-run(app, drivers);
+run(App, drivers);

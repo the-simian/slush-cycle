@@ -62,7 +62,7 @@
     "no-spaced-func": 2,
     "operator-assignment": [2, "always"],
     "operator-linebreak": [2, "after"],
-    "padded-blocks": [2, "never"],
+    "padded-blocks": [1, "never"],
     "quote-props": [2, "as-needed"],
     "keyword-spacing": [2, {
       "before": true,
@@ -120,7 +120,7 @@
     "dot-location": [2, "property"],
 
     "quotes": 0,
-    "global-strict": 0, 
+    "global-strict": 0,
     "comma-dangle": [2, "never"],
 
     "babel/generator-star-spacing": 1,
